@@ -4,15 +4,8 @@
     [io.pedestal.http :as http]
     [io.pedestal.test :as test]))
 
-
-(def service-map
-    {::http/routes s/routes
-     ::http/port   9999
-     ::http/type   :jetty
-     ::http/join?  false})
-
 (defn start-server []
-  (reset! s/server (http/start (http/create-server service-map))))
+  (reset! s/server (http/start (http/create-server s/service-map))))
 
 (defn stop-server []
   (http/stop @s/server))
