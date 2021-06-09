@@ -6,8 +6,6 @@
 (defn string->uuid [string]
   (java.util.UUID/fromString string))
 
-(defn make-task [id name status]
-  {:id id :name name :status status})
 
 (def ok 200)
 (def created 201)

@@ -22,7 +22,9 @@
 (def service-map
   (-> service-map-base
       (http/default-interceptors)
-      (update ::http/interceptors conj (i/interceptor interceptors/database-interceptor))))
+      (update ::http/interceptors conj
+              (i/interceptor interceptors/database-interceptor)
+              (i/interceptor interceptors/response-json-interceptor))))
 
 (defonce server (atom nil))
 
